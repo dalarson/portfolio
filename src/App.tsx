@@ -36,7 +36,7 @@ export default function App() {
         <Container size={tab === 'resume' ? 'lg' : 'sm'} style={{ paddingTop: tab === 'resume' ? 90 : 110 }}>
           {tab === 'home' && (
             <Stack align="center" gap="xl">
-              <Avatar size={120} radius={120} src="/res/5645233821521316972.JPG" />
+              <Avatar size={120} radius={120} src="/profile.jpg" />
               <Title order={1}>David Larson</Title>
               <Text c="dimmed" ta="center" size="lg">
                 Software Engineer at Microsoft — building beautiful, accessible interfaces with React

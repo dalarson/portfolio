@@ -22,7 +22,7 @@ export default function TopBar() {
           <Group>
             <Anchor href="#" underline="never" c="inherit">
               <Group>
-                <Avatar src="/res/5645233821521316972.JPG" size="md" radius="xl" />
+                <Avatar src="/profile.jpg" size="md" radius="xl" />
                 <div>
                   <Text fw={700}>David Larson</Text>
                   <Text size="xs" c="dimmed">Software Engineer at Microsoft</Text>
