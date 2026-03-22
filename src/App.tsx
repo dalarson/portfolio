@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import TopBar from './components/TopBar'
 import Resume from './components/Resume'
-import { ActionIcon, Anchor, Box, Container, Stack, Title, Text, Button, Group, Avatar, Tooltip } from '@mantine/core'
+import { ActionIcon, Box, Container, Stack, Title, Text, Button, Group, Avatar, Tooltip } from '@mantine/core'
 import { IconMail, IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react'
 import './App.css'
 
