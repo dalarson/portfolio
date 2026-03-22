@@ -34,8 +34,6 @@ export default function TopBar() {
           <Group gap="md">
             <Anchor href="#projects">Projects</Anchor>
             <Anchor href="#resume">Resume</Anchor>
-            <Anchor href="https://github.com/dalarson" target="_blank" rel="noreferrer">GitHub</Anchor>
-            <Anchor href="https://www.linkedin.com/in/larsondavid46" target="_blank" rel="noreferrer">LinkedIn</Anchor>
           </Group>
         </Group>
       </Container>
