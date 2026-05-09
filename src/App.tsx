@@ -4,6 +4,7 @@ import Resume from './components/Resume'
 import { ActionIcon, Box, Container, Stack, Title, Text, Button, Group, Avatar, Tooltip } from '@mantine/core'
 import { IconMail, IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react'
 import './App.css'
+import { Projects } from './projects/projects'
 
 type Tab = 'home' | 'projects' | 'resume'
 
@@ -51,13 +52,7 @@ export default function App() {
           )}
 
           {tab === 'projects' && (
-            <div style={{ width: '100%' }}>
-              <Title order={3}>Featured project</Title>
-              <Text>
-                A short description of a project with a link to the live demo and the
-                repository.
-              </Text>
-            </div>
+            <Projects />
           )}
 
           {tab === 'resume' && (
