@@ -1,7 +1,6 @@
 import React from 'react';
 import { Project } from '../types/SanityTypes'; // The interface we created earlier
 import { CloudDemo } from './cloudDemo';
-import { Stack } from '@fluentui/react';
 import { RepoDemo } from './repoDemo';
 
 interface ProjectShowcaseProps {
