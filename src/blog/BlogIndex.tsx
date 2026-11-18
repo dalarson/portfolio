@@ -25,8 +25,8 @@ export default function BlogIndex() {
     useEffect(() => {
         document.title = 'Blog | David Larson'
         const controller = new AbortController()
-        fetchCategories({ signal: controller.signal }).then(setCategories).catch(() => {})
-        fetchFeaturedPost({ signal: controller.signal }).then(setFeatured).catch(() => {})
+        fetchCategories({ signal: controller.signal }).then(setCategories).catch(() => { })
+        fetchFeaturedPost({ signal: controller.signal }).then(setFeatured).catch(() => { })
         return () => controller.abort()
     }, [])
 
@@ -134,8 +134,8 @@ export default function BlogIndex() {
                             {category
                                 ? `No articles in ${activeCategory?.title ?? 'this category'} yet.`
                                 : showFeatured
-                                  ? 'More articles coming soon.'
-                                  : 'No articles have been published yet. Check back soon.'}
+                                    ? 'More articles coming soon.'
+                                    : 'No articles have been published yet. Check back soon.'}
                         </Text>
                     ) : (
                         <div className="blog-grid">
