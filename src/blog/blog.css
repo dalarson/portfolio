@@ -160,3 +160,10 @@
   color: #000 !important;
   font-weight: 800;
 }
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 380px));
+  gap: var(--mantine-spacing-lg);
+  justify-content: center;
+}
