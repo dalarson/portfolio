@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Box, Container, Group, Avatar, Text, Anchor } from '@mantine/core'
 
 export default function TopBar() {
@@ -20,7 +21,7 @@ export default function TopBar() {
       <Container size="lg" style={{ height: '100%' }}>
         <Group justify="space-between" align="center" style={{ height: '100%' }}>
           <Group>
-            <Anchor href="#" underline="never" c="inherit">
+            <Anchor component={Link} to="/" underline="never" c="inherit">
               <Group>
                 <Avatar src="/profile.jpg" size="md" radius="xl" />
                 <div>
@@ -32,8 +33,9 @@ export default function TopBar() {
           </Group>
 
           <Group gap="md">
-            <Anchor href="#projects">Projects</Anchor>
-            <Anchor href="#resume">Resume</Anchor>
+            <Anchor component={Link} to="/#projects">Projects</Anchor>
+            <Anchor component={Link} to="/blog">Blog</Anchor>
+            <Anchor component={Link} to="/#resume">Resume</Anchor>
           </Group>
         </Group>
       </Container>

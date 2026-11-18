@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react'
+import { Link, Route, Routes, useLocation } from 'react-router-dom'
 import TopBar from './components/TopBar'
 import Resume from './components/Resume'
 import { ActionIcon, Box, Container, Stack, Title, Text, Button, Group, Avatar, Tooltip } from '@mantine/core'
 import { IconMail, IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react'
 import './App.css'
 import { Projects } from './projects/projects'
+import BlogIndex from './blog/BlogIndex'
+import BlogPost from './blog/BlogPost'
 
 type Tab = 'home' | 'projects' | 'resume'
 
@@ -15,26 +17,14 @@ function hashToTab(hash: string): Tab {
 }
 
 function useHashTab(): Tab {
-  const [tab, setTab] = useState<Tab>(() => hashToTab(window.location.hash))
-
-  useEffect(() => {
-    const onHashChange = () => setTab(hashToTab(window.location.hash))
-    window.addEventListener('hashchange', onHashChange)
-    return () => window.removeEventListener('hashchange', onHashChange)
-  }, [])
-
-  return tab
+  return hashToTab(useLocation().hash)
 }
 
-export default function App() {
+function Home() {
   const tab = useHashTab()
 
   return (
-    <Box style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <TopBar />
-
-      <Box style={{ flex: 1, paddingBottom: 60 }}>
-        <Container size={tab === 'resume' ? 'lg' : 'sm'} style={{ paddingTop: tab === 'resume' ? 90 : 110 }}>
+    <Container size={tab === 'resume' ? 'lg' : 'sm'} style={{ paddingTop: tab === 'resume' ? 90 : 110 }}>
           {tab === 'home' && (
             <Stack align="center" gap="xl">
               <Avatar size={120} radius={120} src="/profile.jpg" />
@@ -45,8 +35,8 @@ export default function App() {
               </Text>
 
               <Group>
-                <Button component="a" href="#projects">Projects</Button>
-                <Button variant="outline" component="a" href="#resume">Resume</Button>
+                <Button component={Link} to="/#projects">Projects</Button>
+                <Button variant="outline" component={Link} to="/#resume">Resume</Button>
               </Group>
             </Stack>
           )}
@@ -60,7 +50,21 @@ export default function App() {
               <Resume />
             </Container>
           )}
-        </Container>
+    </Container>
+  )
+}
+
+export default function App() {
+  return (
+    <Box style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <TopBar />
+
+      <Box style={{ flex: 1, paddingBottom: 60 }}>
+        <Routes>
+          <Route path="/blog" element={<BlogIndex />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
       </Box>
 
       <Box
