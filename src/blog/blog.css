@@ -71,7 +71,7 @@
   border-radius: 0 6px 6px 0;
 }
 
-.blog-body :not(pre) > code {
+.blog-body :not(pre)>code {
   background: var(--code-bg);
   padding: 0.1em 0.35em;
   border-radius: 4px;
@@ -159,4 +159,11 @@
 .blog-card-title {
   color: #000 !important;
   font-weight: 800;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 380px));
+  gap: var(--mantine-spacing-lg);
+  justify-content: center;
 }

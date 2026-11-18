@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { Alert, Box, Button, Container, Group, Loader, SimpleGrid, Skeleton, Stack, Text, Title } from '@mantine/core'
+import { Alert, Box, Button, Container, Group, Loader, Skeleton, Stack, Text, Title } from '@mantine/core'
 import { IconAlertCircle } from '@tabler/icons-react'
 import { fetchCategories, fetchFeaturedPost, fetchPosts } from '../sanity/queries'
 import type { Category, PostSummary } from '../sanity/types'
@@ -25,8 +25,8 @@ export default function BlogIndex() {
     useEffect(() => {
         document.title = 'Blog | David Larson'
         const controller = new AbortController()
-        fetchCategories({ signal: controller.signal }).then(setCategories).catch(() => {})
-        fetchFeaturedPost({ signal: controller.signal }).then(setFeatured).catch(() => {})
+        fetchCategories({ signal: controller.signal }).then(setCategories).catch(() => { })
+        fetchFeaturedPost({ signal: controller.signal }).then(setFeatured).catch(() => { })
         return () => controller.abort()
     }, [])
 
@@ -80,7 +80,7 @@ export default function BlogIndex() {
     return (
         <Container size="lg" pt={110} pb="xl">
             <Stack gap="xl">
-                <Box maw={680}>
+                <Box maw={680} mx="auto">
                     <Title order={1} className="blog-title" c="var(--text-h)">
                         Writing &amp; Ideas
                     </Title>
@@ -93,7 +93,7 @@ export default function BlogIndex() {
                 {showFeatured && featured && <PostCard post={featured} featured />}
 
                 {categories.length > 0 && (
-                    <Group gap="xs" role="tablist" aria-label="Filter by category">
+                    <Group gap="xs" justify="center" role="tablist" aria-label="Filter by category">
                         {[{ _id: 'all', title: 'All', slug: '' }, ...categories].map((c) => (
                             <Button
                                 key={c._id}
@@ -122,11 +122,11 @@ export default function BlogIndex() {
                 )}
 
                 {loading ? (
-                    <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="lg">
+                    <div className="blog-grid">
                         {[0, 1, 2].map((i) => (
                             <Skeleton key={i} height={320} radius="md" />
                         ))}
-                    </SimpleGrid>
+                    </div>
                 ) : (
                     !error &&
                     (visible.length === 0 ? (
@@ -134,15 +134,15 @@ export default function BlogIndex() {
                             {category
                                 ? `No articles in ${activeCategory?.title ?? 'this category'} yet.`
                                 : showFeatured
-                                  ? 'More articles coming soon.'
-                                  : 'No articles have been published yet. Check back soon.'}
+                                    ? 'More articles coming soon.'
+                                    : 'No articles have been published yet. Check back soon.'}
                         </Text>
                     ) : (
-                        <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="lg">
+                        <div className="blog-grid">
                             {visible.map((post) => (
                                 <PostCard key={post._id} post={post} />
                             ))}
-                        </SimpleGrid>
+                        </div>
                     ))
                 )}
 
