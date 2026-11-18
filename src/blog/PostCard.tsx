@@ -36,9 +36,7 @@ export function PostCard({ post, featured = false }: { post: PostSummary; featur
                     alt={post.coverImage.alt ?? ''}
                     loading={featured ? 'eager' : 'lazy'}
                 />
-            ) : (
-                <div className="blog-card-placeholder" />
-            )}
+            ) : null}
             <Box p="md" style={{ display: 'flex', flexDirection: 'column', gap: 8, flex: 1 }}>
                 <CategoryBadges categories={post.categories} />
                 <Title order={featured ? 2 : 4} className="blog-card-title" c="var(--text-h)">
