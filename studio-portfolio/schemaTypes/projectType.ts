@@ -5,6 +5,13 @@ export default defineType({
     title: 'Project Showcase',
     type: 'document',
     fields: [
+        defineField({
+            name: 'hidden',
+            title: 'Hide from portfolio',
+            type: 'boolean',
+            description: 'Check to hide this project on the site without deleting it.',
+            initialValue: false,
+        }),
         // 1. Basic Info
         defineField({
             name: 'title',
