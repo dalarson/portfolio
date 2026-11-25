@@ -21,6 +21,7 @@ interface BaseProject {
     techStack: string[];
     order: number;
     githubUrl: string;
+    hidden?: boolean;
 }
 
 /**

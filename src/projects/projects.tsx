@@ -8,7 +8,7 @@ export const Projects = () => {
     const [projects, setProjects] = useState<Project[]>([]);
 
     useEffect(() => {
-        const query = `*[_type == "project"] | order(order asc)`;
+        const query = `*[_type == "project" && hidden != true] | order(order asc)`;
         client.fetch(query).then((data) => setProjects(data));
     }, []);
 
