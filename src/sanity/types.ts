@@ -43,8 +43,6 @@ export interface Post extends PostSummary {
     next: PostNeighbor | null
 }
 
-export type UpcomingPage = 'blog' | 'projects'
-
 export interface UpcomingProject {
     _id: string
     title: string

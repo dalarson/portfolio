@@ -32,20 +32,6 @@ export const upcomingProjectType = defineType({
             fields: [defineField({ name: 'alt', title: 'Alt text', type: 'string' })],
         }),
         defineField({
-            name: 'pages',
-            title: 'Show on',
-            type: 'array',
-            of: [{ type: 'string' }],
-            options: {
-                list: [
-                    { title: 'Projects page', value: 'projects' },
-                    { title: 'Blog page', value: 'blog' },
-                ],
-            },
-            initialValue: ['projects'],
-            validation: (Rule) => Rule.required().min(1),
-        }),
-        defineField({
             name: 'order',
             title: 'Display Order',
             type: 'number',

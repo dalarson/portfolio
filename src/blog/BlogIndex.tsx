@@ -4,7 +4,6 @@ import { Alert, Box, Button, Container, Group, Loader, Skeleton, Stack, Text, Ti
 import { IconAlertCircle } from '@tabler/icons-react'
 import { fetchCategories, fetchFeaturedPost, fetchPosts } from '../sanity/queries'
 import type { Category, PostSummary } from '../sanity/types'
-import { UpcomingSection } from '../components/UpcomingSection'
 import { PostCard } from './PostCard'
 import './blog.css'
 
@@ -154,8 +153,6 @@ export default function BlogIndex() {
                         </Button>
                     </Group>
                 )}
-
-                <UpcomingSection page="blog" />
             </Stack>
         </Container>
     )
