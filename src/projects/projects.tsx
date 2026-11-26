@@ -3,6 +3,7 @@ import { client } from '../sanity/client';
 import type { Project } from '../types/SanityTypes';
 import { ProjectShowcase } from './projectShowcase';
 import { Stack } from '@fluentui/react';
+import { UpcomingSection } from '../components/UpcomingSection';
 
 export const Projects = () => {
     const [projects, setProjects] = useState<Project[]>([]);
@@ -17,6 +18,7 @@ export const Projects = () => {
             {projects.map((project) => (
                 <ProjectShowcase key={project._id} project={project} />
             ))}
+            <UpcomingSection page="projects" />
         </Stack>
     );
 };

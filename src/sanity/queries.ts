@@ -1,5 +1,5 @@
 import { blogClient } from './image'
-import type { Category, Post, PostSummary } from './types'
+import type { Category, Post, PostSummary, UpcomingPage, UpcomingProject } from './types'
 
 export const PAGE_SIZE = 9
 
@@ -91,4 +91,10 @@ export async function fetchRelatedPosts(post: Post, limit = 3, opts: Opts = {}):
         },
         { signal: opts.signal },
     )
+}
+
+export async function fetchUpcoming(page: UpcomingPage, opts: Opts = {}): Promise<UpcomingProject[]> {
+    const query = `*[_type == "upcomingProject" && !(_id in path("drafts.**")) && hidden != true && $page in pages]
+      | order(coalesce(order, 99999) asc, _createdAt asc) { _id, title, description, image }`
+    return blogClient.fetch(query, { page }, { signal: opts.signal })
 }
