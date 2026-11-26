@@ -42,3 +42,10 @@ export interface Post extends PostSummary {
     previous: PostNeighbor | null
     next: PostNeighbor | null
 }
+
+export interface UpcomingProject {
+    _id: string
+    title: string
+    description: string
+    image?: SanityImageSource
+}

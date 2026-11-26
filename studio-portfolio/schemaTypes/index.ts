@@ -1,4 +1,5 @@
 import projectType from './projectType'
+import { upcomingProjectType } from './upcomingProjectType'
 import { postType } from './postType'
 import { categoryType } from './categoryType'
 import {
@@ -13,6 +14,7 @@ import {
 
 export const schemaTypes = [
     projectType,
+    upcomingProjectType,
     postType,
     categoryType,
     blogBodyType,
